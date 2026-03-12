@@ -19,11 +19,21 @@ export default function MenuItem({ item, onAdd }) {
   return (
     <div className="menu-item">
 
-      {/* IMAGE + PRICE CIRCLE */}
+      {/* IMAGE + PRICE + OVERLAY BUTTONS */}
       <div className="image-wrapper">
         <img src={item.image} alt={item.name} className="menu-item-image" />
 
+        {/* PRICE CIRCLE */}
         <div className="price-circle">{calculatedPrice} kr</div>
+
+        {/* OVERLAY BUTTONS */}
+        <div className="overlay-buttons">
+          <div className="info-btn">i</div>
+          <div className="info-popup">Näringsinfo: {item.nutrition}</div>
+
+          <div className="allergy-btn">⚠</div>
+          <div className="allergy-popup">Allergier: {item.allergies}</div>
+        </div>
       </div>
 
       {/* TEXT CONTENT */}

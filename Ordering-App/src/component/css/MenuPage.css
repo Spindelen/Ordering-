@@ -1,0 +1,50 @@
+.menu-page {
+  width: 100%;
+  max-width: 1200px;
+  margin : 0 auto;
+}
+
+.menu-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* TEST: tvinga 3 kolumner */
+  gap: 20px;
+  width: 100%;
+}
+
+
+.menu-item {
+  flex: 1 1 calc(50% - 20px); /* två per rad */
+  max-width: 300px;
+}
+
+
+
+.order-box {
+  margin-top: 40px;
+  padding: 20px;
+  background: var(--card-bg);
+  border-radius: 10px;
+}
+
+.order-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.qty-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.qty-controls button {
+  width: 30px;
+  height: 30px;
+  background: #ff4d4d;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+}

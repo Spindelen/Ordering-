@@ -1,0 +1,50 @@
+.start-page {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+}
+
+.banner-video {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 12px;
+  display: block;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none; /* så videon kan klickas om du vill */
+}
+.start-btn {
+  padding: 14px 28px;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 8px;
+  border: none;
+  background: #ff4d4d;
+  color: white;
+  margin-top: 20px;
+}
+.phone-overlay,
+.warning-box {
+  pointer-events: auto; /* men knapparna ska gå att klicka */
+}
+.warning-box {
+  background: black;
+  color: white;
+  padding: 12px;
+  margin: 20px auto;
+  max-width: 400px;
+  font-weight: bold;
+  border-radius: 6px;
+  font-size: 14px;
+  border: 2px solid white;
+}

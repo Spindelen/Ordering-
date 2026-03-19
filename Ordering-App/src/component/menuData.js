@@ -5,7 +5,7 @@ const menuItems = [
     name: "Burger",
     description: "Juicy beef burger with lettuce, tomato and house sauce.",
     price: 59,
-    image: "/burger.jpg",
+    image: "/burger.png",
     nutrition: "500 kcal, 25g protein",
     allergies: "Gluten, Milk",
     category: "Main",

@@ -53,7 +53,30 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
+:root {
+  --bg: #ffffff;
+  --text: #000000;
+  --card-bg: #f3f3f3;
+}
 
+[data-theme="dark"] {
+  --bg: #111111;
+  --text: #ffffff;
+  --card-bg: #222222;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.25s, color 0.25s;
+}
+.card {
+  background: var(--card-bg);
+  color: var(--text);
+}
+
+
+/*
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -66,3 +89,4 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+*/

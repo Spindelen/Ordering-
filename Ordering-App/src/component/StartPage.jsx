@@ -7,22 +7,22 @@ export default function StartPage({ onStart }) {
 
       {/* Bakgrundsvideo */}
       <video autoPlay loop muted className="banner-video">
-        <source src="/banner.mp4" type="video/mp4" />
+        <source src="/food.mp4" type="video/mp4" />
       </video>
 
       {/* Overlay-innehåll ovanpå videon */}
       <div className="overlay">
-        <div className="warning-box">
-          ⚠️ Varning: Regelbunden konsumtion av snabbmat kan påverka din hälsa.
-        </div>
-
+      
        <div className="phone-overlay">
-         <h1>Hungrig?</h1>
-        <button className="start-btn" onClick={onStart}>Beställa</button>
+         
+        <button className="start-btn" onClick={onStart}>Enter</button>
+        </div>
+       
+        <div className="warning-box">
+          ⚠️ Warning: Regular consumption of fast food may affect your health.
         </div>
 
-
-    
+       
       </div>
 
     </div>

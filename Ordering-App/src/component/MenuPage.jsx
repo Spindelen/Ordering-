@@ -1,36 +1,14 @@
 import "./css/MenuPage.css";
 import MenuItem from "./MenuItem";
+import menuItems from "./menuData";
+import { useState } from "react";
 
 export default function MenuPage({ onAddItem, order, onIncrease, onDecrease }) {
-  const menuItems = [
-    {
-      id: 1,
-      name: "Burger",
-      description: "A delicious burger with all the fixings.",
-      price: 59,
-      image: "/burger.jpg",
-      nutrition: "500 kcal, 25g protein",
-      allergies: "Gluten, Milk"
-    },
-    {
-      id: 2,
-      name: "Pizza",
-      description: "Classic pizza with your favorite toppings.",
-      price: 89,
-      image: "/pizza.jpg",
-      nutrition: "700 kcal, 30g protein",
-      allergies: "Gluten, Cheese"
-    },
-    {
-      id: 3,
-      name: "Fries",
-      description: "Crispy golden fries served hot and fresh.",
-      price: 29,
-      image: "/fries.jpg",
-      nutrition: "300 kcal, 4g protein",
-      allergies: "None"
-    }
-  ];
+  const [category, setCategory] = useState("Main");
+  const [search, setSearch] = useState("");
+  const [showFeatured, setShowFeatured] = useState(true);
+  const [open, setOpen] = useState(false);
+  
 
   // -------------------------
   // TOTALPRIS (tar hänsyn till finalPrice + qty)
@@ -42,22 +20,106 @@ export default function MenuPage({ onAddItem, order, onIncrease, onDecrease }) {
 
   return (
     <div className="menu-page">
-      <h1>Fast Food Menu</h1>
+      <img src="/header.png" className="menu-header"/>
 
-      {/* MENYLISTA */}
+      <div className="category-bar">
+      <button 
+        className={showFeatured ? "active" : ""}
+        onClick={() => {
+        setShowFeatured(true);
+        }}
+        >
+        Home
+      </button>
+
+    
+    
+     <button
+       className={category === "Main" ? "active" : ""} 
+      onClick={() => {
+         setCategory("Main");
+        setShowFeatured(false);
+      }}
+     >
+      Main
+    </button>
+
+   <button
+     className={category === "Starter" ? "active" : ""} 
+     onClick={() => {
+         setCategory("Starter");
+        setShowFeatured(false);
+      }}
+   >
+     Starter
+    </button>
+
+   <button
+     className={category === "Dessert" ? "active" : ""} 
+     onClick={() => {
+         setCategory("Dessert");
+        setShowFeatured(false);
+      }}
+   >
+     Dessert
+   </button>
+
+    <button
+     className={category === "Drinks" ? "active" : ""} 
+     onClick={() => {
+         setCategory("Drinks");
+        setShowFeatured(false);
+      }}
+   >
+      Drinks
+   </button>
+
+   <button
+      className={category === "Side" ? "active" : ""} 
+      onClick={() => {
+         setCategory("Side");
+        setShowFeatured(false);
+      }}
+   >
+      Side order
+    </button>
+      
+       <input
+    type="text"
+    className="search-box"
+    placeholder="Search..."
+    value={search}
+    onChange={(e) => setSearch(e.target.value)}
+  />
+</div>
+
+    
+  
+
+
+      {/* MENYLIST */}
       <div className="menu-list">
-        {menuItems.map(item => (
+        {menuItems
+        .filter(item => {
+          if (showFeatured) {
+            return item.featured === true;
+          }
+          return item.category === category;
+        })
+        .filter(item => item.name.toLowerCase().includes(search.toLowerCase()))
+        .map(item => (
           <MenuItem 
             key={item.id} 
             item={item} 
             onAdd={onAddItem} 
           />
         ))}
-      </div>
+     </div>
 
-      {/* ORDER-LISTAN */}
-      <div className="order-box">
-        <h2>Your order</h2>
+      {/* ORDER-LIST */}
+      <div className={`order-box ${open ? "open": ""}`} onClick={() => setOpen(!open)}>
+       <div className="order-tab">Your Order</div>
+    
 
         {order.length === 0 && <p>No items yet.</p>}
 
@@ -69,7 +131,7 @@ export default function MenuPage({ onAddItem, order, onIncrease, onDecrease }) {
               <div className="order-left">
                 <strong>{item.name}</strong>
 
-                {/* Modifieringar */}
+                {/* Mod */}
                 {item.cheese > 0 && (
                   <div className="order-mod">+ Cheese x {item.cheese}</div>
                 )}

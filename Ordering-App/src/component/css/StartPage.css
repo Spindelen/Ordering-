@@ -13,16 +13,19 @@
 }
 .overlay {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 0;              /* viktigt */
+  left: 0;             /* viktigt */
   width: 100%;
-  height: 100%;
+  height: 100%;        /* viktigt */
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;  /* lägger allt i botten */
   align-items: center;
-  pointer-events: none; /* så videon kan klickas om du vill */
+  padding-bottom: 80px;       /* flyttar upp allt från botten */
+  pointer-events: none;
 }
+
+  
 .start-btn {
   padding: 14px 28px;
   font-size: 20px;
@@ -38,13 +41,14 @@
   pointer-events: auto; /* men knapparna ska gå att klicka */
 }
 .warning-box {
-  background: black;
-  color: white;
-  padding: 12px;
-  margin: 20px auto;
+  background: rgb(252, 251, 251);
+  color: rgb(8, 8, 8);
+  padding: 14px;
+  margin: 10px auto;
   max-width: 400px;
   font-weight: bold;
   border-radius: 6px;
   font-size: 14px;
-  border: 2px solid white;
+  border: 2px solid rgb(7, 7, 7);
+  margin-bottom: 50px;
 }

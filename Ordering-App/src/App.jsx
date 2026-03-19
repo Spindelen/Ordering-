@@ -51,9 +51,10 @@ function App() {
 
     setOrder(updated);
   }
-
+         // className={`app ${theme}`} did not work
   return (
-    <div className={`app ${theme}`}>
+        <div className="app" data-theme={theme}>
+         
       <Navbar theme={theme} onToggleTheme={toggleTheme} />
 
       {started ? (
